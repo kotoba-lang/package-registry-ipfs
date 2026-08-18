@@ -1,0 +1,8 @@
+{
+  "name": "kotoba-package-registry-ipfs",
+  "private": true,
+  "comment": "The one npm dependency is transitive: kotoba-lang/io-multiformats computes SHA-256 with @noble/hashes on :cljs. It is declared here so `nbb test/run_portable.cljs` resolves it from this repo rather than from whatever directory the caller happens to be in.",
+  "dependencies": {
+    "@noble/hashes": "2.0.1"
+  }
+}
