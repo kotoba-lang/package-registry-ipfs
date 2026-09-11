@@ -9,8 +9,8 @@ construction to `kotoba.lang.package-registry`. IPFS is therefore a replaceable
 transport, not a source of language or package semantics.
 
 ```sh
-clojure -M:test
-clojure -M:lint
+kbb -M:test
+kbb -M:lint
 ```
 
 ## Portability
@@ -33,7 +33,7 @@ JVM, `Uint8Array` on ClojureScript. That is what
 
 ```sh
 npm install    # @noble/hashes — io-multiformats' SHA-256 on :cljs
-nbb --classpath src:test:<deps> test/run_portable.cljk
+kbb --backend sci --classpath src:test:<deps> test/run_portable.cljk
 ```
 
 Run the nbb suite from any working directory: nothing on that path reads a
@@ -43,8 +43,8 @@ with this repo rather than with the caller's cwd.
 ## Mutation testing
 
 ```sh
-nbb tools/check-mutations.cljk   # every :find occurs exactly once
-nbb tools/mutate.cljk            # apply each, report what reddened
+kbb --backend sci tools/check-mutations.cljk   # every :find occurs exactly once
+kbb --backend sci tools/mutate.cljk            # apply each, report what reddened
 ```
 
 `tools/mutations.edn` states its scope: the transport and its verification,

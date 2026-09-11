@@ -12,7 +12,7 @@
 ;; measured there — so a clean run here means "the transport and its
 ;; verification are measured", not "the package registry is measured".
 ;;
-;; ⚠ These mutations drive `clojure -M:test`. `test/run_portable.cljk` runs
+;; ⚠ These mutations drive `kbb -M:test`. `test/run_portable.cljk` runs
 ;; the same `.cljc` suite under nbb and this harness does not invoke it, so
 ;; a defect that exists only on the `:cljs` side survives here. Two forms in
 ;; `ipfs.cljc` have platform branches — `utf8-string` and the `fetch-fn`
@@ -92,7 +92,7 @@
 
  ;; RETARGETED, not deleted. The first form of this mutation replaced the
  ;; empty option map with `{:fetch-fn nil}`, and it was UNKILLABLE by this
- ;; harness rather than merely uncaught: `clojure -M:test` is the JVM, the
+ ;; harness rather than merely uncaught: `kbb -M:test` is the JVM, the
  ;; JVM's default fetch-fn is `http-fetch`, and the only way to tell the two
  ;; apart from the JVM is to let a call reach the transport and open a socket
  ;; to 127.0.0.1:8080. A unit test must not do that. The difference the
