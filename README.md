@@ -33,7 +33,7 @@ JVM, `Uint8Array` on ClojureScript. That is what
 
 ```sh
 npm install    # @noble/hashes — io-multiformats' SHA-256 on :cljs
-nbb --classpath src:test:<deps> test/run_portable.cljs
+nbb --classpath src:test:<deps> test/run_portable.cljk
 ```
 
 Run the nbb suite from any working directory: nothing on that path reads a
@@ -43,8 +43,8 @@ with this repo rather than with the caller's cwd.
 ## Mutation testing
 
 ```sh
-nbb tools/check-mutations.cljs   # every :find occurs exactly once
-nbb tools/mutate.cljs            # apply each, report what reddened
+nbb tools/check-mutations.cljk   # every :find occurs exactly once
+nbb tools/mutate.cljk            # apply each, report what reddened
 ```
 
 `tools/mutations.edn` states its scope: the transport and its verification,
