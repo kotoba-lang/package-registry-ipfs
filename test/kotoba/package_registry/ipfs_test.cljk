@@ -1,5 +1,5 @@
 (ns kotoba.package-registry.ipfs-test
-  (:require [clojure.test :refer [deftest is testing]]
+  (:require [kotoba.test :refer [deftest is testing]]
             [kotoba.package-registry.ipfs :as ipfs]
             [multiformats.core :as mf]))
 
