@@ -39,7 +39,7 @@
   the UTF-8 decode on the way to `edn/read-string` uses the platform's own
   decoder for the same reason. `js/TextDecoder` is a global in Node and in
   browsers alike, so this does not smuggle in a Node-only dependency."
-  (:require [kotoba.lang.edn :as edn]
+  (:require [kotoba.bytes :as kbytes] [kotoba.lang.edn :as edn]
             [kotoba.lang.package-contract :as contract]
             [kotoba.lang.package-registry :as registry]
             [multiformats.core :as mf])
@@ -67,7 +67,7 @@
   so they agree byte for byte; there is no Clojure primitive for this and
   `kotoba.bytes` encodes but does not decode."
   [b]
-  #?(:clj (String. ^bytes b "UTF-8")
+  #?(:clj (kbytes/utf8-string ^bytes b)
      :cljs (.decode (js/TextDecoder.) b)))
 
 (defn lock-from-requests

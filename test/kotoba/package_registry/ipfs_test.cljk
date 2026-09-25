@@ -1,5 +1,5 @@
 (ns kotoba.package-registry.ipfs-test
-  (:require [kotoba.test :refer [deftest is testing]]
+  (:require [kotoba.bytes :as kbytes] [kotoba.test :refer [deftest is testing]]
             [kotoba.package-registry.ipfs :as ipfs]
             [multiformats.core :as mf]))
 
@@ -9,7 +9,7 @@
   are the host's own UTF-8 encoder — `js/TextEncoder` is a global in Node
   and in browsers, not a Node-only import."
   [s]
-  #?(:clj (.getBytes ^String s "UTF-8")
+  #?(:clj (kbytes/utf8-bytes ^String s)
      :cljs (.encode (js/TextEncoder.) s)))
 
 (defn cid [value]
